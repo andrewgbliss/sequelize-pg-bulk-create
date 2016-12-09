@@ -8,7 +8,8 @@ module.exports = (sequelize, model, records, options = {}) => {
   const attributes = _(model.tableAttributes).keys();
   const primaryKeys = attributes
     .filter(key => model.tableAttributes[key].primaryKey)
-    .value();
+    .value()
+    .join(',');
   const updatableFields = attributes
     .map(key => `"${key}" = EXCLUDED."${key}"`)
     .value()
