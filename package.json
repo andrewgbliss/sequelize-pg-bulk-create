@@ -1,6 +1,6 @@
 {
   "name": "sequelize-pg-bulk-create",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Sequelize Postgres Bulk Create",
   "main": "index.js",
   "scripts": {
