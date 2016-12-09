@@ -2,21 +2,17 @@
 const _ = require('lodash');
 module.exports = (sequelize, model, records, options = {}) => {
   options = _.defaults({}, options, {
-    replacements: [JSON.stringify(records)];
+    replacements: [JSON.stringify(records)]
   });
   const tableName = model.getTableName();
-  const attributes = _(model.tableAttributes)
-    .keys()
-    .map(attribute => `"${attribute}"`)
+  const attributes = _(model.tableAttributes).keys();
+  const primaryKeys = attributes
+    .filter(key => model.tableAttributes[key].primaryKey)
     .value();
-  const primaryKeys = _(model.tableAttributes)
-    .filter(attribute => attribute.primaryKey)
-    .keys()
-    .value();
-  const updatableFields = _(attributeKeys)
-    .map(key => `${key} = EXCLUDED.${key}`)
-    .join(',')
-    .value();
+  const updatableFields = attributes
+    .map(key => `"${key}" = EXCLUDED."${key}"`)
+    .value()
+    .join(',');
   const query = `INSERT INTO "${tableName}"
                   SELECT data.*
                     FROM json_populate_recordset(null::"${tableName}", ?) AS data
