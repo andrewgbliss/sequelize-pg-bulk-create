@@ -1,0 +1,28 @@
+{
+  "name": "sequelize-pg-bulk-create",
+  "version": "1.0.0",
+  "description": "Sequelize Postgres Bulk Create",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewgbliss/sequelize-pg-bulk-create.git"
+  },
+  "keywords": [
+    "Sequelize",
+    "Postgres",
+    "Bulk",
+    "Create"
+  ],
+  "author": "Andrew Bliss",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewgbliss/sequelize-pg-bulk-create/issues"
+  },
+  "homepage": "https://github.com/andrewgbliss/sequelize-pg-bulk-create#readme",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
+}
