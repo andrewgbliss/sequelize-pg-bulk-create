@@ -8,6 +8,7 @@ module.exports = (sequelize, model, records, options = {}) => {
   const attributes = _(model.tableAttributes).keys();
   const primaryKeys = attributes
     .filter(key => model.tableAttributes[key].primaryKey)
+    .map(key => `"${key}"`)
     .value()
     .join(',');
   const updatableFields = attributes
